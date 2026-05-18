@@ -1,0 +1,33 @@
+name: playwright
+
+# Post-deploy playwright check. Filename `playwright.yml` is the contract
+# surface the orchestrator's router matches on to drive
+# `deploying_dev -> playwright_running -> merged_and_deployed`
+# (see infra/lib/router/event-mapper.ts ~line 372).
+#
+# The injection step before the real run lets the thin-slice failure-path
+# variant force a CI failure on attempt 1 — see docs/runbooks/thin-slice.md §6.
+# The variable `THIN_SLICE_INJECT_FAILURE` is set/cleared by the thin-slice
+# driver between attempts; absent / empty / "false" all behave the same.
+
+on:
+  workflow_run:
+    workflows: [deploy]
+    types: [completed]
+    branches: [main]
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Honor thin-slice failure-injection variable
+        if: ${{ vars.THIN_SLICE_INJECT_FAILURE == 'true' }}
+        run: |
+          echo "THIN_SLICE_INJECT_FAILURE is set; injecting deliberate CI failure for attempt 1"
+          exit 1
+
+      - name: Playwright smoke (thin-slice no-op)
+        run: echo "thin-slice playwright smoke passed for commit ${GITHUB_SHA}"
