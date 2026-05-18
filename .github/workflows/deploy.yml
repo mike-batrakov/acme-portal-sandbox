@@ -1,0 +1,19 @@
+name: deploy
+
+# Post-merge deploy step. Filename `deploy.yml` is the contract surface the
+# orchestrator's router matches on to drive `merged -> deploying_dev`
+# (see infra/lib/router/event-mapper.ts ~line 371). Body is a no-op for the
+# thin-slice; real deploy logic lives in a downstream PR.
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy (thin-slice no-op)
+        run: echo "thin-slice deploy succeeded for commit ${GITHUB_SHA}"
