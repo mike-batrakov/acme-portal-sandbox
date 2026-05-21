@@ -8,6 +8,7 @@ import statusRouter from './routes/status';
 import pingRouter from './routes/ping';
 import readyRouter from './routes/ready';
 import heartbeatRouter from './routes/heartbeat';
+import pongRouter from './routes/pong';
 
 const app = express();
 app.use('/', indexRouter);
@@ -19,5 +20,6 @@ app.use('/status', statusRouter);
 app.use('/ping', pingRouter);
 app.use('/ready', readyRouter);
 app.use('/heartbeat', heartbeatRouter);
+app.use('/pong', pongRouter);
 
 export default app;
