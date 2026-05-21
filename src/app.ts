@@ -7,6 +7,7 @@ import metricsRouter from './routes/metrics';
 import statusRouter from './routes/status';
 import pingRouter from './routes/ping';
 import readyRouter from './routes/ready';
+import heartbeatRouter from './routes/heartbeat';
 
 const app = express();
 app.use('/', indexRouter);
@@ -17,5 +18,6 @@ app.use('/metrics', metricsRouter);
 app.use('/status', statusRouter);
 app.use('/ping', pingRouter);
 app.use('/ready', readyRouter);
+app.use('/heartbeat', heartbeatRouter);
 
 export default app;
