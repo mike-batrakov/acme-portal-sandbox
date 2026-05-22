@@ -11,8 +11,10 @@ name: playwright
 # on 2026-05-22. The thin-slice failure-path variant needs the failure to
 # happen BEFORE merge so the FSM goes `ci_running → ci_failed` (non-
 # terminal, retried by the dispatcher), not after merge as
-# `playwright_failed → escalated` (terminal, no retry). See
-# docs/runbooks/thin-slice.md §6.
+# `playwright_failed → escalated` (terminal, no retry). The runbook that
+# documents this is in the orchestrator repo
+# (`mike-batrakov/biztech_ai_orchestrator`, `docs/runbooks/thin-slice.md`,
+# "Sandbox-repo CI workflow change" section).
 
 on:
   workflow_run:
