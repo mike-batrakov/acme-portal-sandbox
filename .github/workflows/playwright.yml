@@ -2,8 +2,10 @@ name: playwright
 
 # Post-deploy playwright check. Filename `playwright.yml` is the contract
 # surface the orchestrator's router matches on to drive
-# `deploying_dev -> playwright_running -> merged_and_deployed`
-# (see infra/lib/router/event-mapper.ts ~line 372).
+# `deploying_dev -> playwright_running -> merged_and_deployed`. The router
+# lives in a separate repo (`mike-batrakov/biztech_ai_orchestrator`,
+# `infra/lib/router/event-mapper.ts`); search there for `'playwright'` to
+# find the workflow-name match.
 #
 # The failure-injection step that used to live here was moved to ci.yml
 # on 2026-05-22. The thin-slice failure-path variant needs the failure to
