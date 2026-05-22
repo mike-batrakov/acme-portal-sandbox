@@ -11,6 +11,7 @@ import heartbeatRouter from './routes/heartbeat';
 import pongRouter from './routes/pong';
 import keepaliveRouter from './routes/keepalive';
 import pulseRouter from './routes/pulse';
+import uptimeRouter from './routes/uptime';
 
 const app = express();
 app.use('/', indexRouter);
@@ -25,5 +26,6 @@ app.use('/heartbeat', heartbeatRouter);
 app.use('/pong', pongRouter);
 app.use('/keepalive', keepaliveRouter);
 app.use('/pulse', pulseRouter);
+app.use('/uptime', uptimeRouter);
 
 export default app;
