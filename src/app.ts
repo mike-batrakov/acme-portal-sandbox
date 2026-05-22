@@ -9,6 +9,7 @@ import pingRouter from './routes/ping';
 import readyRouter from './routes/ready';
 import heartbeatRouter from './routes/heartbeat';
 import pongRouter from './routes/pong';
+import keepaliveRouter from './routes/keepalive';
 
 const app = express();
 app.use('/', indexRouter);
@@ -21,5 +22,6 @@ app.use('/ping', pingRouter);
 app.use('/ready', readyRouter);
 app.use('/heartbeat', heartbeatRouter);
 app.use('/pong', pongRouter);
+app.use('/keepalive', keepaliveRouter);
 
 export default app;
