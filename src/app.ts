@@ -12,6 +12,7 @@ import pongRouter from './routes/pong';
 import keepaliveRouter from './routes/keepalive';
 import pulseRouter from './routes/pulse';
 import uptimeRouter from './routes/uptime';
+import idleRouter from './routes/idle';
 
 const app = express();
 app.use('/', indexRouter);
@@ -27,5 +28,6 @@ app.use('/pong', pongRouter);
 app.use('/keepalive', keepaliveRouter);
 app.use('/pulse', pulseRouter);
 app.use('/uptime', uptimeRouter);
+app.use('/idle', idleRouter);
 
 export default app;
