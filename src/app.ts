@@ -14,6 +14,7 @@ import pulseRouter from './routes/pulse';
 import uptimeRouter from './routes/uptime';
 import awakeRouter from './routes/awake';
 import alertRouter from './routes/alert';
+import signalRouter from './routes/signal';
 
 const app = express();
 app.use('/', indexRouter);
@@ -31,5 +32,6 @@ app.use('/pulse', pulseRouter);
 app.use('/uptime', uptimeRouter);
 app.use('/awake', awakeRouter);
 app.use('/alert', alertRouter);
+app.use('/signal', signalRouter);
 
 export default app;
