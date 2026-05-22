@@ -13,6 +13,7 @@ import keepaliveRouter from './routes/keepalive';
 import pulseRouter from './routes/pulse';
 import uptimeRouter from './routes/uptime';
 import awakeRouter from './routes/awake';
+import alertRouter from './routes/alert';
 
 const app = express();
 app.use('/', indexRouter);
@@ -29,5 +30,6 @@ app.use('/keepalive', keepaliveRouter);
 app.use('/pulse', pulseRouter);
 app.use('/uptime', uptimeRouter);
 app.use('/awake', awakeRouter);
+app.use('/alert', alertRouter);
 
 export default app;
