@@ -15,6 +15,7 @@ import uptimeRouter from './routes/uptime';
 import awakeRouter from './routes/awake';
 import alertRouter from './routes/alert';
 import signalRouter from './routes/signal';
+import welcomeRouter from './routes/welcome';
 
 const app = express();
 app.use('/', indexRouter);
@@ -33,5 +34,6 @@ app.use('/uptime', uptimeRouter);
 app.use('/awake', awakeRouter);
 app.use('/alert', alertRouter);
 app.use('/signal', signalRouter);
+app.use('/welcome', welcomeRouter);
 
 export default app;
