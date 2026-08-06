@@ -16,6 +16,7 @@ import awakeRouter from './routes/awake';
 import alertRouter from './routes/alert';
 import signalRouter from './routes/signal';
 import welcomeRouter from './routes/welcome';
+import lobbyRouter from './routes/lobby';
 
 const app = express();
 app.use('/', indexRouter);
@@ -35,5 +36,6 @@ app.use('/awake', awakeRouter);
 app.use('/alert', alertRouter);
 app.use('/signal', signalRouter);
 app.use('/welcome', welcomeRouter);
+app.use('/lobby', lobbyRouter);
 
 export default app;
