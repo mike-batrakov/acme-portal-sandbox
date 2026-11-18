@@ -19,6 +19,7 @@ import welcomeRouter from './routes/welcome';
 import beaconRouter from './routes/beacon';
 import greetingRouter from './routes/greeting';
 import compassRouter from './routes/compass';
+import harborRouter from './routes/harbor';
 
 const app = express();
 app.use('/', indexRouter);
@@ -41,5 +42,6 @@ app.use('/welcome', welcomeRouter);
 app.use('/beacon', beaconRouter);
 app.use('/greeting', greetingRouter);
 app.use('/compass', compassRouter);
+app.use('/harbor', harborRouter);
 
 export default app;
